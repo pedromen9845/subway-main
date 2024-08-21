@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Subway Map</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      label {
+        font-size: 18px;
+      }
+
+      input[type="text"] {
+        width: 250px;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      input[type="submit"] {
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: background-color 0.2s ease;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #555;
+      }
+
+      .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .image-container img {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Subway Map</h1>
+    <form action="/map" method="post">
+      <label for="city">选择城市：</label>
+      <select name="city" id="city">
+        <option value="beijing">北京</option>
+        <option value="tianjin">天津</option>
+        <option value="shenzhen">深圳</option>
+      </select>
+      <br /><br />
+      <label for="source">起始站点：</label>
+      <input type="text" id="source" name="source" /><br /><br />
+      <label for="target">目标站点：</label>
+      <input type="text" id="target" name="target" /><br /><br />
+      <input type="submit" value="提交" />
+    </form>
+    <div class="image-container">
+      <img
+        src="{{ url_for('static', filename='subway_map_plain.png') }}"
+        alt="Subway Map"
+      />
+    </div>
+  </body>
+</html>
